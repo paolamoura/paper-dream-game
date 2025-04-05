@@ -4,13 +4,14 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Sonhos de Papel</title>
-  <link href="https://fonts.googleapis.com/css2?family=Just+Another+Hand&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Just+Another+Hand&family=Quicksand:wght@400;600&family=Signika+Negative:wght@600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <div id="jogo-container">
 
     <div id="tela-inicial" class="tela">
+      <div class="fundo-papel"></div>
       <div class="estrelas"></div>
       <h1 id="titulo-jogo">Sonhos de Papel</h1>
       <p class="intro">Em cada sonho, uma emoção a ser enfrentada.</p>
@@ -18,8 +19,9 @@
     </div>
 
     <div id="tela-instrucoes" class="tela hidden">
+      <div class="fundo-papel"></div>
       <div class="caixa pergaminho">
-        <h2>Como Jogar</h2>
+        <h2>COMO JOGAR</h2>
         <p>
           <strong>Movimentação:</strong> Use as setas do teclado ⬆️ ⬇️ ⬅️ ➡️<br>
           <strong>Objetivo:</strong> Empurre palavras negativas e alcance a estrela dourada ⭐<br>
@@ -30,16 +32,15 @@
     </div>
 
     <div id="aviso-fase" class="tela hidden">
-      <div class="caixa aviso">
-        Fase 1: Medo
-      </div>
+      <div class="fundo-papel"></div>
+      <div class="caixa aviso">Fase 1: Medo</div>
     </div>
 
     <canvas id="gameCanvas" width="800" height="600" class="hidden"></canvas>
-
   </div>
 
-  <audio id="musica-menu" src="./assets/audio/lofi.mp3" loop autoplay></audio>
+  <audio id="musica-menu" src="./assets/audio/lofi.mp3" loop></audio>
+  <audio id="musica-fase" src="./assets/audio/ambiente.mp3" loop></audio>
 
   <script src="game.js"></script>
   <script>
@@ -47,28 +48,28 @@
     const telaInstrucoes = document.getElementById("tela-instrucoes");
     const avisoFase = document.getElementById("aviso-fase");
     const musicaMenu = document.getElementById("musica-menu");
+    const musicaFase = document.getElementById("musica-fase");
 
     document.getElementById("btn-iniciar").addEventListener("click", () => {
-    telaInicial.classList.add("hidden");
-    telaInstrucoes.classList.remove("hidden");
-
-    musicaMenu.volume = 0.6;
-    musicaMenu.play();
+      telaInicial.classList.add("hidden");
+      telaInstrucoes.classList.remove("hidden");
+      musicaMenu.volume = 0.6;
+      musicaMenu.play();
     });
 
     document.getElementById("btn-continuar").addEventListener("click", () => {
-    telaInstrucoes.classList.add("hidden");
-    avisoFase.classList.remove("hidden");
+      telaInstrucoes.classList.add("hidden");
+      avisoFase.classList.remove("hidden");
 
-    setTimeout(() => {
+      setTimeout(() => {
         avisoFase.classList.add("hidden");
-        document.getElementById("gameCanvas").classList.remove("hidden");
-
+        canvas.classList.remove("hidden");
         musicaMenu.pause();
         musicaMenu.currentTime = 0;
-
+        musicaFase.volume = 0.5;
+        musicaFase.play();
         startGame();
-    }, 2500);
+      }, 2500);
     });
   </script>
 </body>
