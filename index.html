@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sonhos de Papel</title>
+  <link href="https://fonts.googleapis.com/css2?family=Just+Another+Hand&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="jogo-container">
+
+    <div id="tela-inicial" class="tela">
+      <div class="estrelas"></div>
+      <h1 id="titulo-jogo">Sonhos de Papel</h1>
+      <p class="intro">Em cada sonho, uma emoção a ser enfrentada.</p>
+      <button id="btn-iniciar">Iniciar Jogo</button>
+    </div>
+
+    <div id="tela-instrucoes" class="tela hidden">
+      <div class="caixa pergaminho">
+        <h2>Como Jogar</h2>
+        <p>
+          <strong>Movimentação:</strong> Use as setas do teclado ⬆️ ⬇️ ⬅️ ➡️<br>
+          <strong>Objetivo:</strong> Empurre palavras negativas e alcance a estrela dourada ⭐<br>
+          <em>Sinta, explore e descubra cada emoção no mundo dos sonhos.</em>
+        </p>
+        <button id="btn-continuar">Começar</button>
+      </div>
+    </div>
+
+    <div id="aviso-fase" class="tela hidden">
+      <div class="caixa aviso">
+        Fase 1: Medo
+      </div>
+    </div>
+
+    <canvas id="gameCanvas" width="800" height="600" class="hidden"></canvas>
+
+  </div>
+
+  <audio id="musica-menu" src="./assets/audio/lofi.mp3" loop autoplay></audio>
+
+  <script src="game.js"></script>
+  <script>
+    const telaInicial = document.getElementById("tela-inicial");
+    const telaInstrucoes = document.getElementById("tela-instrucoes");
+    const avisoFase = document.getElementById("aviso-fase");
+    const musicaMenu = document.getElementById("musica-menu");
+
+    document.getElementById("btn-iniciar").addEventListener("click", () => {
+    telaInicial.classList.add("hidden");
+    telaInstrucoes.classList.remove("hidden");
+
+    musicaMenu.volume = 0.6;
+    musicaMenu.play();
+    });
+
+    document.getElementById("btn-continuar").addEventListener("click", () => {
+    telaInstrucoes.classList.add("hidden");
+    avisoFase.classList.remove("hidden");
+
+    setTimeout(() => {
+        avisoFase.classList.add("hidden");
+        document.getElementById("gameCanvas").classList.remove("hidden");
+
+        musicaMenu.pause();
+        musicaMenu.currentTime = 0;
+
+        startGame();
+    }, 2500);
+    });
+  </script>
+</body>
+</html>
