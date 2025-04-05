@@ -166,7 +166,11 @@ function gameLoop() {
     faseConcluida = true;
     somVitoria.play();
     document.getElementById("musica-fase").pause();
-  }
+  
+    setTimeout(() => {
+      window.location.href = "./phase-two/phase-two.html";
+    }, 2000);
+  }  
 
   requestAnimationFrame(gameLoop);
 }

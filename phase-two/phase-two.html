@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Fase 2 – Insegurança</title>
+  <link href="https://fonts.googleapis.com/css2?family=Just+Another+Hand&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div id="fase-container">
+    <!-- Tela de Instruções -->
+    <div id="tela-instrucoes" class="tela">
+      <div class="fundo-papel"></div>
+      <div class="caixa pergaminho">
+        <h2>FASE 2: INSEGURANÇA</h2>
+        <p>
+          Neste sonho, pensamentos de insegurança se aproximam<br>
+          e tentam impedir sua caminhada.<br><br>
+          <strong>Movimentação:</strong> use as setas do teclado ⬆️ ⬇️ ⬅️ ➡️<br>
+          <strong>Objetivo:</strong> Alcance o símbolo da coragem 💜
+        </p>
+        <button id="btn-comecar">Começar</button>
+      </div>
+    </div>
+
+    <!-- Canvas do jogo -->
+    <canvas id="gameCanvas" width="800" height="600" class="hidden"></canvas>
+  </div>
+
+  <!-- Áudios -->
+  <audio id="musica-inseguranca" src="../assets/audio/inseguranca.mp3" loop></audio>
+  <audio id="efeito-tremor" src="../assets/audio/tremor.mp3"></audio>
+  <audio id="efeito-vitoria" src="../assets/audio/vitoria.mp3"></audio>
+
+  <!-- Script -->
+  <script src="phase-two.js"></script>
+</body>
+</html>
