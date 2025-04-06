@@ -5,8 +5,8 @@ const somVitoria = new Audio("./assets/audio/vitoria.mp3");
 
 const player = {
   x: 50, y: 50,
-  width: 96,
-  height: 96,
+  width: 125,
+  height: 125,
   speed: 3,
   image: new Image()
 };
