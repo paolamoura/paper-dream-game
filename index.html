@@ -3,13 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Sonhos de Papel</title>
-  <link href="https://fonts.googleapis.com/css2?family=Just+Another+Hand&family=Quicksand:wght@400;600&family=Signika+Negative:wght@600&display=swap" rel="stylesheet">
+  <title>Sonhos de Papel – Fase 1</title>
+  <link href="https://fonts.googleapis.com/css2?family=Just+Another+Hand&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <div id="jogo-container">
 
+    <!-- Tela Inicial -->
     <div id="tela-inicial" class="tela">
       <div class="fundo-papel"></div>
       <div class="estrelas"></div>
@@ -18,35 +19,33 @@
       <button id="btn-iniciar">Iniciar Jogo</button>
     </div>
 
-    <div id="tela-instrucoes" class="tela hidden">
-      <div class="fundo-papel"></div>
+    <!-- Tela de Instruções -->
+    <div id="tela-instrucoes-fase1" class="tela hidden">
+      <div class="fundo-canvas"></div>
       <div class="caixa pergaminho">
-        <h2>COMO JOGAR</h2>
+        <h2>FASE 1: MEDO</h2>
         <p>
+          Neste sonho, você deve empurrar palavras negativas<br>
+          que tentam te bloquear.<br><br>
           <strong>Movimentação:</strong> Use as setas do teclado ⬆️ ⬇️ ⬅️ ➡️<br>
-          <strong>Objetivo:</strong> Empurre palavras negativas e alcance a estrela dourada ⭐<br>
-          <em>Sinta, explore e descubra cada emoção no mundo dos sonhos.</em>
+          <strong>Objetivo:</strong> Alcance a estrela da luz interior ⭐
         </p>
-        <button id="btn-continuar">Começar</button>
+        <button id="btn-fase1" class="btn-azul">Começar</button>
       </div>
     </div>
 
-    <div id="aviso-fase" class="tela hidden">
-      <div class="fundo-papel"></div>
-      <div class="caixa aviso">Fase 1: Medo</div>
-    </div>
-
+    <!-- Canvas do jogo -->
     <canvas id="gameCanvas" width="800" height="600" class="hidden"></canvas>
   </div>
 
+  <!-- Áudios -->
   <audio id="musica-menu" src="./assets/audio/lofi.mp3" loop></audio>
   <audio id="musica-fase" src="./assets/audio/ambiente.mp3" loop></audio>
 
   <script src="game.js"></script>
   <script>
     const telaInicial = document.getElementById("tela-inicial");
-    const telaInstrucoes = document.getElementById("tela-instrucoes");
-    const avisoFase = document.getElementById("aviso-fase");
+    const telaInstrucoes = document.getElementById("tela-instrucoes-fase1");
     const musicaMenu = document.getElementById("musica-menu");
     const musicaFase = document.getElementById("musica-fase");
 
@@ -57,19 +56,13 @@
       musicaMenu.play();
     });
 
-    document.getElementById("btn-continuar").addEventListener("click", () => {
+    document.getElementById("btn-fase1").addEventListener("click", () => {
       telaInstrucoes.classList.add("hidden");
-      avisoFase.classList.remove("hidden");
-
-      setTimeout(() => {
-        avisoFase.classList.add("hidden");
-        canvas.classList.remove("hidden");
-        musicaMenu.pause();
-        musicaMenu.currentTime = 0;
-        musicaFase.volume = 0.5;
-        musicaFase.play();
-        startGame();
-      }, 2500);
+      document.getElementById("gameCanvas").classList.remove("hidden");
+      musicaMenu.pause();
+      musicaFase.volume = 0.5;
+      musicaFase.play();
+      window.startGame();
     });
   </script>
 </body>

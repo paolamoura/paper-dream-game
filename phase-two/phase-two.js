@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
     blocoImg.src = "../assets/img/bloco-papel.png";
   
     const fundoImg = new Image();
-    fundoImg.src = "../assets/img/textura-papel-rosa.jpg";
+    fundoImg.src = "../assets/img/fundo-canvas2.jpg";
   
     const alvoImg = new Image();
     alvoImg.src = "../assets/img/alvo.png";

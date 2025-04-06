@@ -4,7 +4,11 @@ const ctx = canvas.getContext("2d");
 const somVitoria = new Audio("./assets/audio/vitoria.mp3");
 
 const player = {
-  x: 50, y: 50, width: 96, height: 96, speed: 3, image: new Image()
+  x: 50, y: 50,
+  width: 96,
+  height: 96,
+  speed: 3,
+  image: new Image()
 };
 player.image.src = "./assets/personagem.png";
 
@@ -51,7 +55,12 @@ function atualizarParticulas() {
 }
 
 function isColliding(a, b) {
-  return !(a.x > b.x + b.width || a.x + a.width < b.x || a.y > b.y + b.height || a.y + a.height < b.y);
+  return !(
+    a.x > b.x + b.width ||
+    a.x + a.width < b.x ||
+    a.y > b.y + b.height ||
+    a.y + a.height < b.y
+  );
 }
 
 function movePlayer() {
@@ -63,7 +72,13 @@ function movePlayer() {
   if (keys["ArrowLeft"]) nextX -= player.speed;
   if (keys["ArrowRight"]) nextX += player.speed;
 
-  const futurePlayer = { x: nextX, y: nextY, width: player.width, height: player.height };
+  const futurePlayer = {
+    x: nextX,
+    y: nextY,
+    width: player.width,
+    height: player.height
+  };
+
   let colidiu = false;
 
   empurraveis.forEach(bloc => {
@@ -105,7 +120,7 @@ function drawLuzDourada() {
 function drawEmpurraveis() {
   empurraveis.forEach(bloc => {
     ctx.drawImage(blocoImg, bloc.x, bloc.y, bloc.width, bloc.height);
-    ctx.font = "20px 'Signika Negative', sans-serif";
+    ctx.font = "20px 'Quicksand', sans-serif";
     ctx.fillStyle = "#3c2a21";
     ctx.textAlign = "center";
     ctx.shadowColor = "#000";
@@ -116,6 +131,19 @@ function drawEmpurraveis() {
 }
 
 function drawGoal() {
+  const x = goal.x + goal.width / 2;
+  const y = goal.y + goal.height / 2;
+  const pulse = Math.sin(Date.now() / 300) * 20 + 50;
+
+  const grad = ctx.createRadialGradient(x, y, 10, x, y, pulse);
+  grad.addColorStop(0, "rgba(255, 230, 100, 0.5)");
+  grad.addColorStop(1, "rgba(255, 230, 100, 0)");
+
+  ctx.fillStyle = grad;
+  ctx.beginPath();
+  ctx.arc(x, y, pulse, 0, Math.PI * 2);
+  ctx.fill();
+
   ctx.drawImage(goalImg, goal.x, goal.y, goal.width, goal.height);
 }
 
@@ -166,11 +194,11 @@ function gameLoop() {
     faseConcluida = true;
     somVitoria.play();
     document.getElementById("musica-fase").pause();
-  
+
     setTimeout(() => {
       window.location.href = "./phase-two/phase-two.html";
     }, 2000);
-  }  
+  }
 
   requestAnimationFrame(gameLoop);
 }
