@@ -1,7 +1,7 @@
 const canvas = document.getElementById("gameCanvas");
 const ctx = canvas.getContext("2d");
 
-const somVitoria = new Audio("./assets/audio/vitoria.mp3");
+const somVitoria = new Audio("../assets/audio/vitoria.mp3");
 
 const player = {
   x: 50, y: 50,
@@ -10,17 +10,17 @@ const player = {
   speed: 3,
   image: new Image()
 };
-player.image.src = "./assets/personagem.png";
+player.image.src = "../assets/img/personagem.png";
 
 const blocoImg = new Image();
-blocoImg.src = './assets/img/bloco-papel.png';
+blocoImg.src = '../assets/img/bloco-papel.png';
 
 const goal = { x: 700, y: 500, width: 64, height: 64 };
 const goalImg = new Image();
-goalImg.src = './assets/img/estrela.png';
+goalImg.src = '../assets/img/estrela.png';
 
 const fundoImg = new Image();
-fundoImg.src = './assets/img/fundo-canvas.jpg';
+fundoImg.src = '../assets/img/fundo-canvas.jpg';
 
 const keys = {};
 document.addEventListener("keydown", (e) => keys[e.key] = true);
@@ -165,10 +165,10 @@ function mostrarMensagemFinal() {
   ctx.fillStyle = "rgba(0,0,0,0.8)";
   ctx.fillRect(0, 0, canvas.width, canvas.height);
   ctx.fillStyle = "#fff";
-  ctx.font = "28px 'Just Another Hand', cursive";
+  ctx.font = "20px 'Quicksand', sans-serif";
   ctx.textAlign = "center";
   ctx.fillText("Você enfrentou a escuridão.", canvas.width / 2, canvas.height / 2 - 20);
-  ctx.fillText("A luz estava em você o tempo todo. ✨", canvas.width / 2, canvas.height / 2 + 20);
+  ctx.fillText("A luz estava em você o tempo todo! ✨", canvas.width / 2, canvas.height / 2 + 20);
 }
 
 function gameLoop() {
@@ -195,7 +195,7 @@ function gameLoop() {
     document.getElementById("musica-fase").pause();
 
     setTimeout(() => {
-      window.location.href = "./phase-two/phase-two.html";
+      window.location.href = "../phase-two/phase-two.html";
     }, 2500);
   }
 

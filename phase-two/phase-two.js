@@ -1,5 +1,5 @@
 if (performance.navigation.type === performance.navigation.TYPE_RELOAD) {
-  window.location.href = "../index.html";
+  window.location.href = "/phase-one/phase-one.html";
 }
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   const personagemImg = new Image();
-  personagemImg.src = "../assets/personagem.png";
+  personagemImg.src = "../assets/img/personagem.png";
 
   const blocoImg = new Image();
   blocoImg.src = "../assets/img/bloco-papel.png";
@@ -195,10 +195,10 @@ document.addEventListener("DOMContentLoaded", () => {
     ctx.fillStyle = "rgba(0,0,0,0.8)";
     ctx.fillRect(0, 0, canvas.width, canvas.height);
     ctx.fillStyle = "#fff";
-    ctx.font = "28px 'Just Another Hand', cursive";
+    ctx.font = "20px 'Quicksand', sans-serif";
     ctx.textAlign = "center";
-    ctx.fillText("Você enfrentou a insegurança!", canvas.width / 2, canvas.height / 2 - 10);
-    ctx.fillText("Continue com coragem ✨", canvas.width / 2, canvas.height / 2 + 30);
+    ctx.fillText("Você enfrentou a insegurança.", canvas.width / 2, canvas.height / 2 - 10);
+    ctx.fillText("Continue com coragem! ✨", canvas.width / 2, canvas.height / 2 + 30);
   }
 
   function loop() {
@@ -223,7 +223,7 @@ document.addEventListener("DOMContentLoaded", () => {
       somVitoria.play();
     
       setTimeout(() => {
-        window.location.href = "../phase-three.html";
+        window.location.href = "/phase-three/phase-three.html";
       }, 2500);
     }    
 

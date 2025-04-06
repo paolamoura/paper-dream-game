@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Sonhos de Papel – Fase 1</title>
+  <title>1ª fase</title>
   <link href="https://fonts.googleapis.com/css2?family=Just+Another+Hand&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
-  <link rel="icon" type="image/png" href="./assets/img/cloud.png" />
-  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" type="image/png" href="../assets/img/cloud.png" />
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <div id="jogo-container">
@@ -36,10 +36,10 @@
     <canvas id="gameCanvas" width="800" height="600" class="hidden"></canvas>
   </div>
 
-  <audio id="musica-menu" src="./assets/audio/lofi.mp3" loop></audio>
-  <audio id="musica-fase" src="./assets/audio/ambiente.mp3" loop></audio>
+  <audio id="musica-menu" src="../assets/audio/lofi.mp3" loop></audio>
+  <audio id="musica-fase" src="../assets/audio/ambiente.mp3" loop></audio>
 
-  <script src="game.js"></script>
+  <script src="phase-one.js"></script>
   <script>
     window.onload = () => {
       const telaInicial = document.getElementById("tela-inicial");

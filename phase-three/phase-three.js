@@ -1,5 +1,5 @@
 if (performance.navigation.type === performance.navigation.TYPE_RELOAD) {
-    window.location.href = "index.html";
+    window.location.href = "/phase-one/phase-one.html";
   }  
 
 const canvas = document.getElementById("gameCanvas");
@@ -8,16 +8,16 @@ const ctx = canvas.getContext("2d");
 const player = {
   x: 100, y: 100, width: 125, height: 125, speed: 3, image: new Image()
 };
-player.image.src = "assets/personagem.png";
+player.image.src = "../assets/img/personagem.png";
 
 const blocoImg = new Image();
-blocoImg.src = 'assets/img/bloco-papel.png';
+blocoImg.src = '../assets/img/bloco-papel.png';
 
 const fundoImg = new Image();
-fundoImg.src = 'assets/img/fundo-canvas3.jpg';
+fundoImg.src = '../assets/img/fundo-canvas3.jpg';
 
 const arvoreImg = new Image();
-arvoreImg.src = 'assets/img/arvore.png';
+arvoreImg.src = '../assets/img/arvore.png';
 
 const musicaMenu = document.getElementById("musica-menu");
 const somVitoria = document.getElementById("som-vitoria");
