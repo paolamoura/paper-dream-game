@@ -18,11 +18,11 @@ canvas {
   width: 100%;
   height: 100%;
   display: block;
-  background-color: transparent;
   position: absolute;
   top: 0;
   left: 0;
   z-index: 0;
+  background-color: transparent;
   border: 2px solid #fff;
 }
 
@@ -38,10 +38,8 @@ canvas {
   align-items: center;
   text-align: center;
   z-index: 2;
-  opacity: 1;
-  pointer-events: all;
   transition: opacity 0.5s ease;
-  overflow: hidden;
+  opacity: 1;
 }
 
 .tela.hidden {
@@ -49,8 +47,6 @@ canvas {
   pointer-events: none;
 }
 
-
-/* Fundo papel para tela inicial */
 .fundo-papel {
   position: absolute;
   width: 100%;
@@ -60,7 +56,6 @@ canvas {
   z-index: -2;
 }
 
-/* Fundo canvas para tela de instruções */
 .fundo-canvas {
   position: absolute;
   width: 100%;
@@ -70,12 +65,11 @@ canvas {
   z-index: -2;
 }
 
-/* Estrelas animadas */
 .estrelas {
   position: absolute;
   width: 100%;
   height: 100%;
-  background: url('./assets/img/estrelas.png') repeat;
+  background: url('./assets/img/cloud.png') repeat;
   z-index: -1;
   opacity: 0.25;
   animation: estrelasAnim 60s linear infinite;
@@ -86,27 +80,22 @@ canvas {
   to { background-position: 1000px 1000px; }
 }
 
-/* Título do jogo com efeito flutuar */
 #titulo-jogo {
   font-family: 'Just Another Hand', cursive;
-  font-size: 80px;
-  color: #4d2600;
-  animation: flutuar 3s ease-in-out infinite;
-  text-shadow: 2px 2px 0px #fff8dc;
+  font-size: 100px;
+  color: #ffe175;
+  animation: flutuar 4s ease-in-out infinite;
+  text-shadow: 0 0 12px #2091ab, 0 0 24px rgb(104, 214, 218);
+  -webkit-text-stroke: 1px #4d2600;
+  letter-spacing: 2px;
+  margin: 0;
 }
 
 @keyframes flutuar {
   0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-12px); }
+  50% { transform: translateY(-25px); }
 }
 
-.intro {
-  font-size: 20px;
-  color: #444;
-  margin-bottom: 20px;
-}
-
-/* Botão padrão (amarelo) */
 button {
   font-size: 22px;
   padding: 10px 30px;
@@ -123,7 +112,6 @@ button:hover {
   transform: scale(1.05);
 }
 
-/* Botão azul (fase 1) */
 .btn-azul {
   background-color: #85c1ff;
   color: #222;
@@ -133,7 +121,6 @@ button:hover {
   background-color: #aedcff;
 }
 
-/* Caixa de instruções com fundo de papel */
 .caixa.pergaminho {
   background: url('./assets/img/textura-papel.jpg') no-repeat center;
   background-size: cover;
@@ -154,14 +141,4 @@ button:hover {
   font-family: 'Just Another Hand', cursive;
   font-size: 42px;
   margin-bottom: 15px;
-}
-
-/* Caixa de aviso (fase 1) */
-.caixa.aviso {
-  background: rgba(0,0,0,0.8);
-  color: #fff;
-  font-size: 32px;
-  padding: 30px 60px;
-  border-radius: 12px;
-  font-family: 'Just Another Hand', cursive;
 }

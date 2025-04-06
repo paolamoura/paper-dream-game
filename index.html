@@ -5,13 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Sonhos de Papel – Fase 1</title>
   <link href="https://fonts.googleapis.com/css2?family=Just+Another+Hand&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="./assets/img/cloud.png" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <div id="jogo-container">
 
-    <!-- Tela Inicial -->
-    <div id="tela-inicial" class="tela">
+    <div id="tela-inicial" class="tela fade">
       <div class="fundo-papel"></div>
       <div class="estrelas"></div>
       <h1 id="titulo-jogo">Sonhos de Papel</h1>
@@ -19,8 +19,7 @@
       <button id="btn-iniciar">Iniciar Jogo</button>
     </div>
 
-    <!-- Tela de Instruções -->
-    <div id="tela-instrucoes-fase1" class="tela hidden">
+    <div id="tela-instrucoes-fase1" class="tela fade hidden">
       <div class="fundo-canvas"></div>
       <div class="caixa pergaminho">
         <h2>FASE 1: MEDO</h2>
@@ -34,36 +33,43 @@
       </div>
     </div>
 
-    <!-- Canvas do jogo -->
     <canvas id="gameCanvas" width="800" height="600" class="hidden"></canvas>
   </div>
 
-  <!-- Áudios -->
   <audio id="musica-menu" src="./assets/audio/lofi.mp3" loop></audio>
   <audio id="musica-fase" src="./assets/audio/ambiente.mp3" loop></audio>
 
   <script src="game.js"></script>
   <script>
-    const telaInicial = document.getElementById("tela-inicial");
-    const telaInstrucoes = document.getElementById("tela-instrucoes-fase1");
-    const musicaMenu = document.getElementById("musica-menu");
-    const musicaFase = document.getElementById("musica-fase");
+    window.onload = () => {
+      const telaInicial = document.getElementById("tela-inicial");
+      const telaInstrucoes = document.getElementById("tela-instrucoes-fase1");
+      const canvas = document.getElementById("gameCanvas");
+      const musicaMenu = document.getElementById("musica-menu");
+      const musicaFase = document.getElementById("musica-fase");
 
-    document.getElementById("btn-iniciar").addEventListener("click", () => {
-      telaInicial.classList.add("hidden");
-      telaInstrucoes.classList.remove("hidden");
-      musicaMenu.volume = 0.6;
-      musicaMenu.play();
-    });
+      document.getElementById("btn-iniciar").addEventListener("click", () => {
+        telaInicial.classList.add("hidden");
+        telaInstrucoes.classList.remove("hidden");
+        musicaMenu.volume = 0.6;
+        musicaMenu.play();
+      });
 
-    document.getElementById("btn-fase1").addEventListener("click", () => {
+      document.getElementById("btn-fase1").addEventListener("click", () => {
+        telaInstrucoes.classList.add("hidden");
+        canvas.classList.remove("hidden");
+        musicaMenu.pause();
+        musicaFase.volume = 0.5;
+        musicaFase.play();
+        startGame();
+      });
+
+      telaInicial.classList.remove("hidden");
       telaInstrucoes.classList.add("hidden");
-      document.getElementById("gameCanvas").classList.remove("hidden");
+      canvas.classList.add("hidden");
       musicaMenu.pause();
-      musicaFase.volume = 0.5;
-      musicaFase.play();
-      window.startGame();
-    });
+      musicaFase.pause();
+    };
   </script>
 </body>
 </html>

@@ -1,3 +1,7 @@
+if (performance.navigation.type === performance.navigation.TYPE_RELOAD) {
+    window.location.href = "../index.html";
+  }
+
 document.addEventListener("DOMContentLoaded", () => {
     const canvas = document.getElementById("gameCanvas");
     const ctx = canvas.getContext("2d");
@@ -7,6 +11,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const musicaFase = document.getElementById("musica-inseguranca");
     const somTremor = document.getElementById("efeito-tremor");
     const somVitoria = document.getElementById("efeito-vitoria");
+  
+    tela.classList.remove("hidden");
+    canvas.classList.add("hidden");
   
     btn.addEventListener("click", () => {
       tela.classList.add("hidden");
@@ -33,10 +40,12 @@ document.addEventListener("DOMContentLoaded", () => {
     const goal = { x: 620, y: 460, width: 160, height: 160 };
   
     const blocos = [
-      { x: 300, y: 300, width: 160, height: 110, text: "incapaz", dx: 0, dy: 0 },
-      { x: 500, y: 200, width: 160, height: 110, text: "ansiedade", dx: 0, dy: 0 },
-      { x: 200, y: 450, width: 160, height: 110, text: "autocrítica", dx: 0, dy: 0 }
-    ];
+        { x: 300, y: 300, width: 160, height: 110, text: "autocrítica", dx: 0, dy: 0 },
+        { x: 500, y: 200, width: 160, height: 110, text: "comparação", dx: 0, dy: 0 },
+        { x: 100, y: 400, width: 160, height: 110, text: "vergonha", dx: 0, dy: 0 },
+        { x: 400, y: 100, width: 160, height: 110, text: "dúvida", dx: 0, dy: 0 },
+        { x: 200, y: 480, width: 160, height: 110, text: "desconfiança", dx: 0, dy: 0 }  
+      ];      
   
     const confetes = [];
     for (let i = 0; i < 50; i++) {
@@ -159,7 +168,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const posY = bloco.y + vibraY;
   
         ctx.drawImage(blocoImg, posX, posY, bloco.width, bloco.height);
-        ctx.font = "24px 'Just Another Hand', cursive";
+        ctx.font = "20px 'Quicksand', sans-serif";
         ctx.fillStyle = "#3c2a21";
         ctx.textAlign = "center";
         ctx.shadowColor = "#000";

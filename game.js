@@ -27,9 +27,14 @@ document.addEventListener("keydown", (e) => keys[e.key] = true);
 document.addEventListener("keyup", (e) => keys[e.key] = false);
 
 const empurraveis = [
-  { x: 200, y: 150, width: 160, height: 110, text: "não sou capaz" },
-  { x: 400, y: 250, width: 160, height: 110, text: "fracasso" },
-  { x: 500, y: 400, width: 160, height: 110, text: "insegurança" }
+  { x: 100, y: 100, width: 160, height: 110, text: "escuridão" },
+  { x: 300, y: 150, width: 160, height: 110, text: "perigo" },
+  { x: 450, y: 250, width: 160, height: 110, text: "solidão" },
+  { x: 550, y: 100, width: 160, height: 110, text: "incerteza" },
+  { x: 200, y: 350, width: 160, height: 110, text: "arrepio" },
+  { x: 350, y: 400, width: 160, height: 110, text: "desespero" },
+  { x: 600, y: 300, width: 160, height: 110, text: "pânico" },
+  { x: 100, y: 450, width: 160, height: 110, text: "pavor" }
 ];
 
 const particulas = [];
@@ -72,13 +77,7 @@ function movePlayer() {
   if (keys["ArrowLeft"]) nextX -= player.speed;
   if (keys["ArrowRight"]) nextX += player.speed;
 
-  const futurePlayer = {
-    x: nextX,
-    y: nextY,
-    width: player.width,
-    height: player.height
-  };
-
+  const futurePlayer = { x: nextX, y: nextY, width: player.width, height: player.height };
   let colidiu = false;
 
   empurraveis.forEach(bloc => {
@@ -197,12 +196,12 @@ function gameLoop() {
 
     setTimeout(() => {
       window.location.href = "./phase-two/phase-two.html";
-    }, 2000);
+    }, 2500);
   }
 
   requestAnimationFrame(gameLoop);
 }
 
-window.startGame = function () {
+function startGame() {
   gameLoop();
-};
+}
