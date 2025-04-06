@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sonhos de Papel – Fase 3</title>
+  <link href="https://fonts.googleapis.com/css2?family=Just+Another+Hand&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="../assets/img/cloud.png" />
+  <link rel="stylesheet" href="styles3.css" />
+</head>
+<body>
+  <div id="jogo-container">
+    <div id="tela-instrucoes" class="tela">
+      <div class="fundo-canvas3"></div>
+      <div class="caixa pergaminho">
+        <h2>FASE 3: REALIDADE</h2>
+        <p>
+          Neste sonho final, você deve transformar todas as palavras negativas<br>
+          em palavras positivas tocando-as com coragem.<br><br>
+          <strong>Movimentação:</strong> Setas do teclado ⬆️ ⬇️ ⬅️ ➡️<br>
+          <strong>Objetivo:</strong> Ao transformar todas as palavras, alcance a árvore da esperança 🌳
+        </p>
+        <button id="btn-comecar" class="btn-verde">Começar</button>
+      </div>
+    </div>
+
+    <div id="tela-parabens" class="tela hidden">
+        <div class="fundo-papel"></div>
+        <div class="estrelas"></div>
+        <h1 id="titulo-jogo">Parabéns!</h1>
+        <p class="intro">Você venceu o Sonhos de Papel.<br>Está pronto para viver uma realidade incrível ✨</p>
+        <canvas id="confetesCanvas" width="800" height="600"></canvas>
+      </div>      
+
+    <canvas id="gameCanvas" width="800" height="600" class="hidden"></canvas>
+  </div>
+
+  <audio id="musica-menu" src="../assets/audio/lofi.mp3" loop></audio>
+  <audio id="som-vitoria" src="../assets/audio/vitoria.mp3"></audio>
+
+  <script src="phase-three.js"></script>
+</body>
+</html>
