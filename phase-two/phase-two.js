@@ -221,7 +221,11 @@ document.addEventListener("DOMContentLoaded", () => {
       somTremor.pause();
       somVitoria.currentTime = 0;
       somVitoria.play();
-    }
+    
+      setTimeout(() => {
+        window.location.href = "../phase-three.html";
+      }, 2500);
+    }    
 
     requestAnimationFrame(loop);
   }

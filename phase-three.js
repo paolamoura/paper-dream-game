@@ -1,3 +1,7 @@
+if (performance.navigation.type === performance.navigation.TYPE_RELOAD) {
+    window.location.href = "index.html";
+  }  
+
 const canvas = document.getElementById("gameCanvas");
 const ctx = canvas.getContext("2d");
 
@@ -167,3 +171,11 @@ function loop() {
 
   requestAnimationFrame(loop);
 }
+
+window.addEventListener("load", () => {
+    setTimeout(() => {
+      musicaMenu.volume = 0.6;
+      musicaMenu.play().catch(() => {});
+    }, 300);
+  });
+  
