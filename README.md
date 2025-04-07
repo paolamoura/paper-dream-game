@@ -19,25 +19,20 @@ Criado com JavaScript, HTML e CSS, publicado via GitHub Pages.
 
 Empurre palavras que te bloqueiam no escuro.  
 
-![Fase 1](./assets/img/fase1.png)
-
----
+<img src="./assets/img/fase1.png" alt="Fase 1" width="500"/>
 
 ### 🟣 Fase 2: Insegurança
 
 Palavras negativas se movem e tentam te impedir.  
 
-![Fase 2](./assets/img/fase2.png)
+<img src="./assets/img/fase2.png" alt="Fase 2" width="500"/>
 
----
 
 ### 🟢 Fase 3: Coragem
 
 Transforme palavras negativas em positivas ao tocá-las.  
 
-![Fase 3](./assets/img/fase3.png)
-
----
+<img src="./assets/img/fase3.png" alt="Fase 3" width="500"/>
 
 ## Tecnologias
 
