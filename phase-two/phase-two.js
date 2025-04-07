@@ -223,7 +223,7 @@ document.addEventListener("DOMContentLoaded", () => {
       somVitoria.play();
     
       setTimeout(() => {
-        window.location.href = "/paper-dream-game/phase-three/phase-three.html";
+        window.location.href = window.location.origin + "/paper-dream-game/phase-three/phase-three.html";
       }, 2500);
     }    
 
