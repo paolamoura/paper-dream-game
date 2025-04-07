@@ -1,6 +1,6 @@
 if (performance.navigation.type === performance.navigation.TYPE_RELOAD) {
-    window.location.href = "/phase-one/phase-one.html";
-  }  
+  window.location.href = "/paper-dream-game/phase-one/phase-one.html";
+}  
 
 const canvas = document.getElementById("gameCanvas");
 const ctx = canvas.getContext("2d");

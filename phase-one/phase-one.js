@@ -195,7 +195,7 @@ function gameLoop() {
     document.getElementById("musica-fase").pause();
 
     setTimeout(() => {
-      window.location.href = "../phase-two/phase-two.html";
+      window.location.href = "/paper-dream-game/phase-two/phase-two.html";
     }, 2500);
   }
 

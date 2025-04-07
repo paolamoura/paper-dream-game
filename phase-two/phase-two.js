@@ -1,5 +1,5 @@
 if (performance.navigation.type === performance.navigation.TYPE_RELOAD) {
-  window.location.href = "/phase-one/phase-one.html";
+  window.location.href = "/paper-dream-game/phase-one/phase-one.html";
 }
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -223,7 +223,7 @@ document.addEventListener("DOMContentLoaded", () => {
       somVitoria.play();
     
       setTimeout(() => {
-        window.location.href = "/phase-three/phase-three.html";
+        window.location.href = "/paper-dream-game/phase-three/phase-three.html";
       }, 2500);
     }    
 
